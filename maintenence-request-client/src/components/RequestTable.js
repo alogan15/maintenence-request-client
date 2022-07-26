@@ -1,63 +1,27 @@
 import * as React from 'react';
-import { DataGrid, GridColDef } from '@mui/x-data-grid';
-import { FormControlLabel, IconButton } from "@material-ui/core";
+import { DataGrid, GridColDef, GridActionsCellItem } from '@mui/x-data-grid';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { blue } from "@material-ui/core/colors";
-import { red } from "@material-ui/core/colors";
+import { Typography } from '@mui/material';
 
-const MatEdit = ({ index }) => {
-    const handleEditClick = () => {
-      // some action
-    };
-  
-    return (
-      <FormControlLabel
-        control={
-          <IconButton
-            color="secondary"
-            aria-label="add an alarm"
-            onClick={handleEditClick}
-          >
-            <EditIcon style={{ color: blue[500] }} />
-            <DeleteIcon style={{ color: red[900] }} />
-          </IconButton>
-          
-        }
-      />
-    );
-  };
+
 
 const columns: GridColDef[] = [
-  { field: 'id', headerName: 'ID', width: 100 },
-  { field: 'firstName', headerName: 'First Name', width: 200 },
-  { field: 'lastName', headerName: 'Last Name', width: 200 },
-  {
-    field: 'Email', width: 250
+  { field: 'id', headerName: 'ID', width: 100, headerAlign: 'center' },
+  { field: 'firstName', headerName: 'First Name', width: 200, headerAlign: 'center' },
+  { field: 'lastName', headerName: 'Last Name', width: 200, headerAlign: 'center' },
+  { field: 'Email', width: 250, headerAlign: 'center' },
+  { field: 'Apt No', width: 100, headerAlign: 'center' },
+  { field: 'Created At', width: 200, headerAlign: 'center' },
+  { field: 'actions',
+    headerName: 'Actions',
+    type: 'actions',
+    width: 100,
+    getActions: () => [
+      <GridActionsCellItem icon={<EditIcon />} label="Edit" />,
+      <GridActionsCellItem icon={<DeleteIcon />} label="Delete" />,
+    ],
   },
-  {
-    field: 'Apt No', width: 100
-  },
-  {
-    field: 'Created At', width: 200
-  },
-  {
-    field: "Actions",
-      headerName: "Actions",
-      sortable: false,
-      width: 100,
-      disableClickEventBubbling: true,
-      renderCell: (params) => {
-        return (
-          <div
-            className="d-flex justify-content-between align-items-center"
-            style={{ cursor: "pointer" }}
-          >
-            <MatEdit index={params.row.id} />
-          </div>
-        );
-      }
-    }
 ];
 
 const rows = [
@@ -71,6 +35,9 @@ const rows = [
 export default function DataTable() {
   return (
     <div style={{ height: 400, width: '100%' }}>
+      <Typography component="h1" variant="h3" padding={5}>
+            Code Differently Maintenance Request
+          </Typography>
       <DataGrid
         rows={rows}
         columns={columns}
@@ -80,3 +47,4 @@ export default function DataTable() {
     </div>
   );
 }
+

@@ -5,6 +5,7 @@ import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { Typography } from '@mui/material';
 
 
 const theme = createTheme();
@@ -31,6 +32,9 @@ export default function UpdateRequest() {
             alignItems: 'center',
           }}
         >
+          <Typography component="h1" variant="h3">
+            Update Request
+          </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
           <TextField
                   autoComplete="given-name"
@@ -83,6 +87,8 @@ export default function UpdateRequest() {
               id="description"
               autoComplete="description"
               variant='standard'
+              multiline
+              rows={5}
             />
             <Button
               type="submit"

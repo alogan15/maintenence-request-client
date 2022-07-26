@@ -5,7 +5,7 @@ import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
+import { Typography } from '@mui/material';
 
 const theme = createTheme();
 
@@ -31,59 +31,64 @@ export default function AddRequest() {
             alignItems: 'center',
           }}
         >
+          <Typography component="h1" variant="h3">
+            Add Request
+          </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
           <TextField
-                  autoComplete="given-name"
-                  name="firstName"
-                  margin="normal"
-                  required
-                  fullWidth
-                  id="firstName"
-                  label="First Name"
-                  autoFocus
-                  variant='standard'
-                />
-                <TextField
-                  margin="normal"
-                  required
-                  fullWidth
-                  id="lastName"
-                  label="Last Name"
-                  name="lastName"
-                  autoComplete="family-name"
-                  variant='standard'
-                />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Email"
-              name="email"
-              autoComplete="email"
-              autoFocus
-              variant='standard'
-            />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              name="apt no"
-              label="Apt No"
-              id="apt no"
-              autoComplete="apt-no"
-              variant='standard'
-            />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              name="description"
-              label="Description"
-              id="description"
-              autoComplete="description"
-              variant='standard'
-            />
+            autoComplete="given-name"
+            name="firstName"
+            margin="normal"
+            required
+            fullWidth
+            id="firstName"
+            label="First Name"
+            autoFocus
+            variant='standard'
+          />
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            id="lastName"
+            label="Last Name"
+            name="lastName"
+            autoComplete="family-name"
+            variant='standard'
+          />
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            id="email"
+            label="Email"
+            name="email"
+            autoComplete="email"
+            autoFocus
+            variant='standard'
+          />
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            name="apt no"
+            label="Apt No"
+            id="apt no"
+            autoComplete="apt-no"
+            variant='standard'
+          />
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            name="description"
+            label="Description"
+            id="description"
+            autoComplete="description"
+            variant='standard'
+            rows={5}
+            multiline
+          />
             <Button
               type="submit"
               variant="contained"

@@ -6,9 +6,9 @@ import DataTable from './components/RequestTable';
 function App() {
   return (
     <div className="App">
-      {/* <DataTable /> */}
+      <DataTable />
       {/* <AddRequest /> */}
-      <UpdateRequest />
+      {/* <UpdateRequest /> */}
     </div>
   );
 }
